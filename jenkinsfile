@@ -10,7 +10,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'python run_project.py test'
+                sh 'python3 run_project.py test'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
 
         stage('Run Django Server') {
             steps {
-                sh 'python manage.py runserver 0.0.0.0:8001'
+                sh 'python3 manage.py runserver 0.0.0.0:8001'
             }
         }
     }
