@@ -16,7 +16,9 @@ pipeline {
 
         stage('Run Django Server') {
             steps {
-                sh 'python3 manage.py runserver 0.0.0.0:8000'
+                sh 'python3 manage.py runserver 127.0.0.1:8002 &'
+                sh 'sleep 20'
+                sh 'pkill -f "manage.py runserver"'
             }
         }
     }
