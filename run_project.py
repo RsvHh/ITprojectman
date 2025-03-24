@@ -23,7 +23,6 @@ def run_server():
 
 if __name__ == "__main__":
     try:
-        install_requirements()
         run_tests()  # Запускаємо тести перед сервером
         run_server()
     except subprocess.CalledProcessError as e:
