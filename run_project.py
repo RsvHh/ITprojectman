@@ -6,7 +6,7 @@ import sys
 def run_tests():
     """Запуск Django тестів"""
     print("🛠 Виконання тестів...")
-    result = subprocess.run(["python", "manage.py", "test"], capture_output=True, text=True)
+    result = subprocess.run(["python3", "manage.py", "test"], capture_output=True, text=True)
     print(result.stdout)
     
     if result.returncode != 0:
@@ -19,7 +19,7 @@ def run_tests():
 def run_server():
     """Запуск локального сервера Django"""
     print("🚀 Запуск сервера...")
-    subprocess.run(["python", "manage.py", "runserver","8001"], check=True)
+    subprocess.run(["python3", "manage.py", "runserver","8001"], check=True)
 
 if __name__ == "__main__":
     try:
