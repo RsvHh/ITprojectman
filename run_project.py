@@ -16,15 +16,10 @@ def run_tests():
     else:
         print("✅ Усі тести успішно пройдені.")
 
-def run_server():
-    """Запуск локального сервера Django"""
-    print("🚀 Запуск сервера...")
-    subprocess.run(["python3", "manage.py", "runserver","8001"], check=True)
 
 if __name__ == "__main__":
     try:
         run_tests()  # Запускаємо тести перед сервером
-        run_server()
     except subprocess.CalledProcessError as e:
         print(f"❌ Помилка під час виконання команди: {e}")
         sys.exit(1)
