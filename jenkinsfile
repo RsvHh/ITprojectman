@@ -19,11 +19,5 @@ pipeline {
                 sh 'docker build -t gym-management .'
             }
         }
-
-        stage('Run Django Server') {
-            steps {
-                sh 'python3 manage.py runserver 0.0.0.0:8001'
-            }
-        }
     }
 }
