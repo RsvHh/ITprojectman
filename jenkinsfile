@@ -4,13 +4,27 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/RsvHh/ITprojectman.git'
+                git 'https://github.com/RsvHh/ITprojectman.git'
+            }
+        }
+
+        stage('Setup Python Virtual Environment') {
+            steps {
+                sh '''
+                python3 -m venv venv
+                source venv/bin/activate
+                pip install --upgrade pip
+                pip install -r requirements.txt
+                '''
             }
         }
 
         stage('Run tests') {
             steps {
-                sh 'python3 run_project.py test'
+                sh '''
+                source venv/bin/activate
+                python3 run_project.py test
+                '''
             }
         }
 
@@ -22,7 +36,10 @@ pipeline {
 
         stage('Run Django Server') {
             steps {
-                sh 'docker run -d -p 8001:8000 gym-management'
+                sh '''
+                source venv/bin/activate
+                python3 manage.py runserver 0.0.0.0:8000
+                '''
             }
         }
     }
