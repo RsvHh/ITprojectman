@@ -2,10 +2,6 @@ import os
 import subprocess
 import sys
 
-def install_requirements():
-    """Встановлення залежностей з requirements.txt"""
-    print("🔄 Встановлення залежностей...")
-    subprocess.run([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"], check=True)
 
 def run_tests():
     """Запуск Django тестів"""
